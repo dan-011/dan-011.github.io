@@ -5,21 +5,29 @@
         <style>
             div {
                 display: table-cell;
-                width: 250px;
-                height: 400px;
+                width: 500px;
+                height: 500px;
                 padding: 10px;
                 vertical-align: middle;
             }
+            body {
+            	background-image: url("https://i.pinimg.com/originals/be/ce/1e/bece1e65f2c81678c1af359e6d5d4ac2.jpg");
+                background-repeat: no-repeat;
+				background-size: cover;
+         	}
+            p { font-family: Lucida Console; }
+            button { font-family: Courier New; }
+            
         </style>
   </head>
     <body>
         <center>
             <div>
-            <h1>Daniel Paliulis</h1>
-            <p>Student in Computer Science at the University of Connecticut.</p>
+            <h1 style="font-family:'Garamond'; color: white">Daniel Paliulis</h1>
+            <p style="color: white">Student in Computer Science at the University of Connecticut.</p>
 
-            <button onclick="gotoGithub()">Portfolio</button>
-            <button onclick="gotoLinkedIn()">LinkedIn</button>
+            <button onclick="gotoGithub()"><b>Portfolio</b></button>
+            <button onclick="gotoLinkedIn()"><b>LinkedIn</b></button>
             </div>
             <script>
                 function gotoGithub() {
