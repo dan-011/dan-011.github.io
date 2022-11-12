@@ -1,51 +1,72 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="icon" type="image/x-icon" href="binary-code.png">
-    <title>Daniel Paliulis</title>
-    <link rel="stylesheet" href="Main.css">
-  </head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>animated timeline</title>
+        <link rel="stylesheet" href="Main.css">
+    </head>
     <body>
         <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=yes">
         <center>
             <div class="main">
-            <h1 style="font-family:'Garamond'; color: white">Daniel Paliulis</h1>
-            <p style="color: white">Student in Computer Science at the University of Connecticut.</p>
-
-            <button class="button button1" onclick="gotoGithub()"><b>Portfolio</b></button>
-            <button class="button button2" onclick="gotoLinkedIn()"><b>LinkedIn</b></button>
+                <h1 style="font-family:'Garamond'; color: white">Daniel Paliulis</h1>
+                <p style="color: white">Student in Computer Science at the University of Connecticut.</p>
+                <button class="button button1" onclick="gotoGithub()"><b>Portfolio</b></button>
+                <button class="button button2" onclick="gotoLinkedIn()"><b>LinkedIn</b></button>
             </div>
+            <div class="scroll-msg"><h2>S c r o l l&nbsp;&nbsp;&nbsp;t o&nbsp;&nbsp;&nbsp;S e e&nbsp;&nbsp;&nbsp;T i m e l i n e</h2></div>
+
         </center>
-        <section class="timeline" style="font-family:'Courier New'; color: white">
-            <ul>
-              <li>
-                <div>
-                  <time>August 2022 - Present</time>
-                  <br><br><center>Systems Programming Teaching Assistant with the University of Connecticut</center></br></br>
+        <div class="container">
+            <!--<div class="top-section">
+                <h1>
+                    Timeline
+                </h1>
+            </div>-->
+            <div class="timeline">
+                <div class="line"></div>
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content">
+                        <h2>August 2022 - Present</h2>
+                        <p>
+                            Systems Programming Teaching Assistant with the University of Connecticut
+                        </p>
+                        <img src="UConn-CSE-logo1.jpg" alt="UConn CSE Logo">
+                    </div>
                 </div>
-              </li>
-              <li>
-                <div>
-                  <time>May 2022 - August 2022</time>
-                  <br><br><center>Software Engineering Intern with Bentley Systems</center></br></br>
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content">
+                        <h2>May 2022 - August 2022</h2>
+                        <p>
+                            Software Engineering Intern with Bentley Systems
+                        </p>
+                        <img src="Bentley-logo-2.jpg" alt="Bentley Systems Logo">
+                    </div>
                 </div>
-              </li>
-              <li>
-                <div>
-                  <time>June 2021 - August 2021</time>
-                  <br><br><center>Information Technology Intern with the Town of South Windsor</center></br></br>
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content">
+                        <h2>June 2021 - August 2021</h2>
+                        <p>
+                            Information Technology Intern with the Town of South Windsor
+                        </p>
+                        <img src="South-Windsor-Logo.png" alt="Town of South Windsor Logo">
+                    </div>
                 </div>
-              </li>
-              <li>
-                <div>
-                  <time>August 2020 - Present</time>
-                  <br><br><center>Enrolled in the University of Connecticut School of Engineering</center></br></br>
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content">
+                        <h2>August 2020 - Present</h2>
+                        <p>
+                            Enrolled in the University of Connecticut School of Engineering
+                        </p>
+                        <img src="UConn-logo.png" alt="University of Connecticut Logo">
+                    </div>
                 </div>
-              </li>
-            </ul>
-          </section>
-        <footer>
-            <script src="Main.js" charset="utf-8"></script>
-        </footer>
+            </div>
+        </div>
+        <script src="Main.js"></script>
     </body>
 </html>

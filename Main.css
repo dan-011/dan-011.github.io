@@ -1,176 +1,160 @@
 .main {
-    display: table-cell;
-    width: 100%;
-    height: 575px;
-    padding: 10px;
-    vertical-align: middle;
-    margin: auto;
+  display: table-cell;
+  width: 100%;
+  height: 575px;
+  padding: 10px;
+  vertical-align: middle;
+  margin: auto;
 }
 
-
-body {
-    background-image: url("background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
+.scroll-msg{
+  margin-top: 90px;
+  margin-bottom: 0;
+  font-family: garamond;
+  font-weight: 50;
+  position: relative;
+  font-size: 80%;
 }
+
 p { font-family: Lucida Console; }
 .button {
-    background-color: #8f2ae7;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: Courier New;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
+  background-color: #8f2ae7;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: Courier New;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 .button1 {
-  background-color: transparent; 
-  color: white; 
-  border: 2px solid #8f2ae7;
+background-color: transparent; 
+color: white; 
+border: 2px solid #8f2ae7;
 }
 
 .button1:hover {
-  background-color: #8f2ae7;
-  color: black;
+background-color: #8f2ae7;
+color: black;
 }
 
 .button2 {
-  background-color: transparent; 
-  color: white; 
-  border: 2px solid #8f2ae7;
+background-color: transparent; 
+color: white; 
+border: 2px solid #8f2ae7;
 }
 
 .button2:hover {
-  background-color: #8f2ae7;
-  color: black;
+background-color: #8f2ae7;
+color: black;
 }
 
-time{
-  font-weight: bold;
-  font-size: 115%;
-  text-align: left;
+body{
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-weight: 400;
+  color: white;
+  background-color: #4c4177;
+  /*background-image: linear-gradient(315deg, #4c4177 0%, #2a5470 74%);*/
+  background-image: url("../dan-011.github.io/background.jpg");
+  overflow-x: hidden;
 }
 
-.timeline ul li {
-  list-style-type: none;
-  position: relative;
-  width: 6px;
+.container{
+  padding: 2rem;
+  padding-bottom: 400px;
   margin: 0 auto;
-  padding-top: 225px;
-  background: #fff;
+  max-width: 800px;
 }
 
-.timeline ul li::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: inherit;
+.top-section{
+  text-align: center;
+  padding: 4rem 0;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.timeline ul li div {
+.timeline{
   position: relative;
-  bottom: 0;
-  width: 400px;
-  height: 100px;
-  padding: 15px;
-  background: #12b6b8;
+  min-height: 150px;
 }
 
-.timeline ul li div::before {
-  content: '';
+.line{
   position: absolute;
-  bottom: 7px;
-  width: 0;
-  height: 0;
-  border-style: solid;
+  z-index: 0;
+  left: calc(50% - 1px);
+  width: 2px;
+  top: -50px;
+  bottom: -50px;
+  background-color: #fff;
+  display: none;
 }
 
-.timeline ul li:nth-child(odd) div {
-  left: 45px;
+.line:before,
+.line:after{
+  position: absolute;
+  display: black;
+  content: '';
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: #FFF;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.timeline ul li:nth-child(odd) div::before {
-  left: -15px;
-  border-width: 8px 16px 8px 0;
-  border-color: transparent #12b6b8 transparent transparent;
+.line:after{
+  bottom: 0;
 }
 
-.timeline ul li:nth-child(even) div {
-  left: -469px;
-}
-
-.timeline ul li:nth-child(even) div::before {
-  right: -15px;
-  border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #12b6b8;
-}
-.timeline ul li::after {
-  background: #fff;
-  transition: background .5s ease-in-out;
-}
- 
-.timeline ul li.in-view::after {
-  background: #12b6b8;
-}
- 
-.timeline ul li div {
-  visibility: hidden;
+.section{
+  display: flex;
   opacity: 0;
-  transition: all .5s ease-in-out;
+  transform: translateX(-100%);
+  transition: 600ms ease;
+  position: relative;
+  z-index: 1;
+  margin: 50px 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  align-items: center;
+  min-height: 300px;
 }
- 
-.timeline ul li:nth-child(odd) div {
-  transform: translate3d(200px,0,0);
+
+.section:nth-child(odd){
+  flex-direction: row-reverse;
+  transform: translateX(100%);
 }
- 
-.timeline ul li:nth-child(even) div {
-  transform: translate3d(-200px,0,0);
+
+.bead{
+  position: absolute;
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: #1114da;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
- 
-.timeline ul li.in-view div {
+
+.content{
+  width: calc(50% - 2rem);
+}
+
+.show-me:nth-child(n){
   transform: none;
-  visibility: visible;
   opacity: 1;
 }
 
-@media screen and (max-width: 900px) {
-  .timeline ul li div {
-    width: 250px;
-  }
-  .timeline ul li:nth-child(even) div {
-    left: -319px; /*250+45-6*/
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .timeline ul li {
-    margin-left: 20px;
-  }
-   
-  .timeline ul li div {
-    width: calc(100vw - 91px);
-  }
-   
-  .timeline ul li:nth-child(even) div {
-    left: 45px;
-  }
-   
-  .timeline ul li:nth-child(even) div::before {
-    left: -15px;
-    border-width: 8px 16px 8px 0;
-    border-color: transparent #12b6b8 transparent transparent;
-  }
+h1{
+  font-weight: 400;
+  letter-spacing: 1px;
 }
