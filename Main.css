@@ -64,7 +64,7 @@ time{
   position: relative;
   width: 6px;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 225px;
   background: #fff;
 }
 
@@ -151,7 +151,7 @@ time{
     width: 250px;
   }
   .timeline ul li:nth-child(even) div {
-    left: -289px; /*250+45-6*/
+    left: -319px; /*250+45-6*/
   }
 }
 
