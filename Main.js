@@ -4,8 +4,6 @@ function gotoGithub() {
 function gotoLinkedIn() {
   window.open("https://www.linkedin.com/in/daniel-paliulis-152620251/");
 }
-   
-"use strict";
 
 function qs(selector, all = false) {
   return all ? document.querySelectorAll(selector) : document.querySelector(selector);
