@@ -158,3 +158,32 @@ h1{
   font-weight: 400;
   letter-spacing: 1px;
 }
+
+.fade-in {
+  opacity: 0;
+  -webkit-animation: fadein ease-in 1s;
+  animation: fadein ease-in 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+}
+
+.fade-in.delayed {
+  -webkit-animation-delay: .45s;
+  animation-delay: .45s
+}
+
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
