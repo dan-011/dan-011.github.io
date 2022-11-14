@@ -170,8 +170,8 @@ h1{
 }
 
 .fade-in.delayed {
-  -webkit-animation-delay: .45s;
-  animation-delay: .45s
+  -webkit-animation-delay: .55s;
+  animation-delay: .55s
 }
 
 @-webkit-keyframes fadein {
