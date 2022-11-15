@@ -67,8 +67,9 @@ function terminalAnimation(word, id, color){
   var x = 1;
   var waiting = false;
   var target = document.getElementById(id);
+  var exit = false;
   target.setAttribute('style', 'color:' + color);
-  window.setInterval(function(){
+  var interval = window.setInterval(function(){
     if(letterCount == 0 && waiting == false){
       waiting = true;
       window.setTimeout(function(){
@@ -79,13 +80,15 @@ function terminalAnimation(word, id, color){
     }
     else if(letterCount == word.length + 1 && waiting == false){
       waiting = true;
+      exit = true;
+      clearInterval(interval);
     }
     else if(waiting == false){
       target.innerHTML = word.substring(0, letterCount);
       letterCount += x;
     }
   }, 120);
-  window.setInterval(function() {
+  var underscore_interval = window.setInterval(function() {
     if (visible === true) {
       con.className = 'console-underscore hidden'
       visible = false;
@@ -94,6 +97,10 @@ function terminalAnimation(word, id, color){
       con.className = 'console-underscore'
 
       visible = true;
+    }
+    if(exit){
+      document.getElementById('console').remove();      
+      clearInterval(underscore_interval);
     }
   }, 400)
 }
