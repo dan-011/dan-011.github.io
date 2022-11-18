@@ -108,22 +108,22 @@ function terminalAnimation(word, id, color){
 setTimeout(descriptionAnimation, 1500, "descr");
 
 function descriptionAnimation(id){
-  var button = document.getElementById(id);
+  var descriptionTxt = document.getElementById(id);
   var options = "~!@#$%^&*()_+`1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:ZXCVBNM<>?";
   var message = "Student in Computer Science at the University of Connecticut.";
   var len = message.length;
-  var strlen = 1;
+  var substrlen = 1;
   var intervalID = window.setInterval(function(){
     var out = "";
-    for(let j = 0; j < strlen; j++){
+    for(let j = 0; j < substrlen; j++){
       var select = Math.floor(Math.random() * len);
       var selchar = options.charAt(select);
       out += selchar;
     }
-    button.innerHTML = out;
-    strlen++;
-    if(strlen == len){
-      button.innerHTML = message;
+    descriptionTxt.innerHTML = out;
+    substrlen++;
+    if(substrlen == len){
+      descriptionTxt.innerHTML = message;
       window.clearInterval(intervalID);
     }
   }, 30);
