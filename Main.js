@@ -105,3 +105,29 @@ function terminalAnimation(word, id, color){
   }, 400)
 }
 
+setTimeout(descriptionAnimation, 1500, "descr");
+
+function descriptionAnimation(id){
+  var button = document.getElementById(id);
+  var on = false;
+  var str = "pee";
+  var i = str.length - 1;
+  var options = "~!@#$%^&*()_+`1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:ZXCVBNM<>?";
+  var message = "Student in Computer Science at the University of Connecticut.";
+  var len = message.length;
+  var strlen = 1;
+  var intervalID = window.setInterval(function(){
+    var out = " ";
+    for(let j = 0; j < strlen; j++){
+      var select = Math.floor(Math.random() * len);
+      var selchar = options.charAt(select);
+      out += selchar;
+    }
+    button.innerHTML = out;
+    strlen++;
+    if(strlen == len){
+      button.innerHTML = message;
+      window.clearInterval(intervalID);
+    }
+  }, 30);
+}
