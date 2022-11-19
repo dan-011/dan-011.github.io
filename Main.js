@@ -113,6 +113,7 @@ function descriptionAnimation(id){
   var message = "Student in Computer Science at the University of Connecticut.";
   var len = message.length;
   var substrlen = 1;
+  var waitingIter = 0;
   var intervalID = window.setInterval(function(){
     var out = "";
     for(let j = 0; j < substrlen; j++){
@@ -121,10 +122,20 @@ function descriptionAnimation(id){
       out += selchar;
     }
     descriptionTxt.innerHTML = out;
-    substrlen++;
-    if(substrlen == len){
-      descriptionTxt.innerHTML = message;
-      window.clearInterval(intervalID);
+    if(!waitingIter){
+      if(substrlen < 50){
+        substrlen+=3;
+      }
+      else{
+        substrlen++;
+      }
     }
-  }, 30);
+    if(substrlen >= len){
+      waitingIter++;
+      if(waitingIter > 6){
+        descriptionTxt.innerHTML = message;
+        window.clearInterval(intervalID);
+      }
+    }
+  }, 70);
 }

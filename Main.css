@@ -172,13 +172,13 @@ h1{
 .fade-in.delayed {
   /*-webkit-animation-delay: .65s;
   animation-delay: .65s;*/
-  -webkit-animation-delay: 3.5s;
-  animation-delay: 3.5s;
+  -webkit-animation-delay: 4.5s;
+  animation-delay: 4.5s;
 }
 
 .fade-in.delayed-buttons {
-  -webkit-animation-delay: 2.5s;
-  animation-delay: 2.5s;
+  -webkit-animation-delay: 3.533s;
+  animation-delay: 3.533s;
 }
 
 .hidden {
