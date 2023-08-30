@@ -7,6 +7,10 @@
   margin: auto;
 }
 
+.front-page{
+  height: 100%;
+}
+
 .scroll-msg{
   margin-top: 90px;
   margin-bottom: 0;
