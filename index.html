@@ -5,6 +5,26 @@
         <title>Daniel Paliulis</title>
         <link rel="stylesheet" href="Main.css">
         <link rel="icon" type="image/x-icon" href="Images/rocket-icon.png">
+        
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">  
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            inter: ['Inter', 'sans-serif'],
+                            caveat: ['Caveat', 'cursive'],
+                        },
+                    },
+                },
+            };
+        </script>      
     </head>
     <body>
         <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=yes">
@@ -12,104 +32,280 @@
             <div class="front-page">
                 <div class="main">
                     <div class='console-container' id="terminal-id">
-                        <h1>
+                        
+                        <h1 class="text-3xl">
                             <span id='text'></span><div class='console-underscore' id='console'>_</div>
                         </h1>
                     </div>
                     <p style="color: white" id="descr">&nbsp;</p>
                     <div class="fade-in delayed-buttons">
-                        <button class="button button1" onclick="gotoGithub()"><b>Portfolio</b></button>
+                        <button class="button button1" onclick="gotoGithub()"><b>Github</b></button>
                         <button class="button button2" onclick="gotoLinkedIn()"><b>LinkedIn</b></button>
                     </div>
                 </div>
-                <div class="scroll-msg fade-in delayed"><h2>S c r o l l&nbsp;&nbsp;&nbsp;t o&nbsp;&nbsp;&nbsp;S e e&nbsp;&nbsp;&nbsp;T i m e l i n e</h2></div>
             </div>
         </center>
-        <div class="container">
-            <div class="timeline">
-                <div class="line"></div>
-                <div class="section">
-                    <div class="bead"></div>
-                    <div class="content">
-                        <h2>August 2023 - Present</h2>
-                        <p>
-                            Artificial Intelligence Teaching Assistant at the University of Connecticut
-                        </p>
-                        <img src="Images/UConn-CSE-logo.jpg" alt="UConn CSE Logo">
+        <div class="w-full max-w-6xl mx-auto px-4 md:px-6 py-24 fade-in delayed">
+            <!-- Tabs component -->
+            <div x-data="{ activeTab: 1 }">
+            
+                <!-- Buttons -->
+                <div class="flex justify-center">
+                    <div
+                        role="tablist"
+                        class="max-[480px]:max-w-[180px] inline-flex flex-wrap justify-center bg-slate-200 rounded-[20px] p-1 mb-8 min-[480px]:mb-12"
+                        @keydown.right.prevent.stop="$focus.wrap().next()"
+                        @keydown.left.prevent.stop="$focus.wrap().prev()"
+                        @keydown.home.prevent.stop="$focus.first()"
+                        @keydown.end.prevent.stop="$focus.last()"
+                    >
+                        <!-- Button #1 -->
+                        <button
+                            id="tab-1"
+                            class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+                            onClick="changeTab(1)"
+                            :class="activeTab === 1 ? 'bg-white text-slate-900' : 'text-slate-600 hover:text-slate-900'"
+                            :tabindex="activeTab === 1 ? 0 : -1"
+                            :aria-selected="activeTab === 1"
+                            aria-controls="tabpanel-1"
+                            @click="activeTab = 1"
+                            @focus="activeTab = 1"
+                        >Bio</button>
+                        <!-- Button #2 -->
+                        <button
+                            id="tab-2"
+                            class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+                            onClick="changeTab(2)"
+                            :class="activeTab === 2 ? 'bg-white text-slate-900' : 'text-slate-600 hover:text-slate-900'"
+                            :tabindex="activeTab === 2 ? 0 : -1"
+                            :aria-selected="activeTab === 2"
+                            aria-controls="tabpanel-2"
+                            @click="activeTab = 2"
+                            @focus="activeTab = 2"
+                        >Projects</button>
+                        <!-- Button #3 -->
+                        <button
+                            id="tab-3"
+                            class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+                            :class="activeTab === 3 ? 'bg-white text-slate-900' : 'text-slate-600 hover:text-slate-900'"
+                            :tabindex="activeTab === 3 ? 0 : -1"
+                            :aria-selected="activeTab === 3"
+                            aria-controls="tabpanel-3"
+                            @click="activeTab = 3"
+                            @focus="activeTab = 3"
+                        >
+                        <script>
+                            let btn_element = document.getElementById("tab-3");
+                         
+                            btn_element.addEventListener("click", () => {
+                              changeTab(3);
+                            })
+                          </script>
+                        Timeline</button>
                     </div>
                 </div>
-                <div class="section">
-                    <div class="bead"></div>
-                    <div class="content">
-                        <h2>May 2023 - August 2023</h2>
-                        <p>
-                            Software Engineering Intern at Pratt & Whitney
-                        </p>
-                        <img src="Images/Pratt_&_Whitney_logo.svg.png" alt="UConn CSE Logo">
+
+                <!-- Tab panels -->
+                <div class="max-w-[640px] mx-auto">
+                    <div class="relative flex flex-col">
+
+                        <!-- Panel #1 -->
+                        <article
+                            id="tabpanel-1"
+                            class="w-full bg-white rounded-2xl shadow-xl min-[480px]:flex items-stretch focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+                            role="tabpanel" 
+                            tabindex="0"
+                            aria-labelledby="tab-1"
+                            x-show="activeTab === 1"
+                            x-transition:enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 transform order-first"
+                            x-transition:enter-start="opacity-0 -translate-y-8"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-300 transform absolute"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-12"                        
+                        >
+                        
+                        <figure class="min-[480px]:w-1/2 p-2">
+                            <img class="w-full h-[180px] min-[480px]:h-full object-cover rounded-lg" width="304" height="214" src="Images/my-face.png" alt="Tab 03" />
+                        </figure>
+                        <div class="min-[480px]:w-1/2 flex flex-col justify-center p-5 pl-3">
+                            <div class="flex justify-between mb-1">
+                                <header>
+                                    <h1 class="text-xl font-bold text-slate-900">Daniel Paliulis</h1>
+                                    <div class="font-caveat text-xl font-medium text-sky-500">(he/him)</div>
+                                </header>
+                            </div>
+                            <div class="text-slate-500 text-sm mb-2">
+                                <!--<ul>
+                                    <li>Computer Science Major</li>
+                                    <li>Concentrations in software development and computational data analytics</li>
+                                    <li>Software Engineering at Bentley Systems and Pratt & Whitney</li>
+                                    <li>Research under Dr. Joseph Johnson in leveraging artificial intelligence to advise investment decisions.</li>
+                                    <li>Upsilon Pi Epsilon Vice President</li>
+                                    <li>Husky Developers Vice President</li>
+                                    <li>Teaching Assistant for C++, AI, and Systems Programming Classes</li>
+                                </ul>-->
+                                I am a computer science major at the University of Connecticut with concentrations in software development and computational data analytics. I have two years of industry experience working as a software engineering intern at Bentley Systems and Pratt & Whitney. At my university I am the Upsilon Pi Epsilon vice president, Husky Developers project lead, and I conduct research under Dr. Joseph Johnson in leveraging artificial intelligence to advise investment decisions.
+                            </div>
+                            <div class="text-right">
+                                <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-out" href = "mailto:daniel.paliulis@uconn.edu">daniel.paliulis@uconn.edu</a>
+                            </div>
+                        </div>
+                        </article>
+
+                        <!-- Panel #2 -->
+                        <article
+                            id="tabpanel-2"
+                            class="w-full rounded-2xl shadow-xl min-[480px]:flex items-stretch focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+                            role="tabpanel" 
+                            tabindex="0"
+                            aria-labelledby="tab-2"
+                            x-show="activeTab === 2"
+                            x-transition:enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 transform order-first"
+                            x-transition:enter-start="opacity-0 -translate-y-8"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-300 transform absolute"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-12"                        
+                        >
+                            <div class="container-imgs">
+                                <div>
+                                <div class="content-imgs" onclick="window.open('https://github.com/dan-011/Going-Green-Game')">
+                                    <h2>Going Green</h2>
+                                    <span>C++ game consisting of multiple mini-games that increase in difficulty as the game progresses</span>
+                                </div>
+                                </div>
+                                <div>
+                                <div class="content-imgs" onclick="window.open('https://github.com/dan-011/Graphical-Editor-Project')">
+                                    <h2>Graphical Editor</h2>
+                                    <span>Application written in C++ similar to MS Paint that allows for drawing and editing shapes</span>                                      </span>
+                                </div>
+                                </div>
+                                <div>
+                                <div class="content-imgs" onclick="window.open('https://github.com/dan-011/Sprite-Adventures-Game')">
+                                    <h2>Adventures of Sprite</h2>
+                                    <span>A single player side scrolling platform game written in C++ featuring level progression and high scores</span>
+                                </div>
+                                </div>
+                                <div>
+                                <div class="content-imgs" onclick="window.open('https://github.com/dan-011/AI-Maze')">
+                                    <h2>Maze Seeker</h2>
+                                    <span>AI written in Python that navigates mazes, teaching itself to interact with the environment to reach the exit</span>
+                                </div>
+                            </div>
+                          </div>
+                        </article>
+                        
+                        <!-- Panel #3 -->
+                        <article
+                            id="tabpanel-3"
+                            class="w-full rounded-2xl shadow-xl min-[480px]:flex items-stretch focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+                            role="tabpanel" 
+                            tabindex="0"
+                            aria-labelledby="tab-3"
+                            x-show="activeTab === 3"
+                            x-transition:enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 transform order-first"
+                            x-transition:enter-start="opacity-0 -translate-y-8"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-300 transform absolute"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-12"                        
+                        >
+                        <div class="container">
+                                <div class="timeline">
+                                    <div class="line"></div>
+                                    <div class="section">
+                                        <div class="bead"></div>
+                                        <div class="content">
+                                            <h2>August 2023 - Present</h2>
+                                            <p>
+                                                Artificial Intelligence Teaching Assistant at the University of Connecticut
+                                            </p>
+                                            <img src="Images/UConn-CSE-logo.jpg" alt="UConn CSE Logo">
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="bead"></div>
+                                        <div class="content">
+                                            <h2>May 2023 - August 2023</h2>
+                                            <p>
+                                                Software Engineering Intern at Pratt & Whitney
+                                            </p>
+                                            <img src="Images/Pratt_&_Whitney_logo.svg.png" alt="UConn CSE Logo">
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="bead"></div>
+                                        <div class="content">
+                                            <h2>January 2023 - Present</h2>
+                                            <p>
+                                                Independent Student Researcher in Applying Artificial Intelligence to Stock Trends
+                                            </p>
+                                            <img src="Images/UConn-CSE-logo.jpg" alt="UConn CSE Logo">
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="bead"></div>
+                                        <div class="content">
+                                            <h2>January 2023 - May 2023</h2>
+                                            <p>
+                                                C++ Essentials Teaching Assistant at the University of Connecticut
+                                            </p>
+                                            <img src="Images/UConn-CSE-logo.jpg" alt="UConn CSE Logo">
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="bead"></div>
+                                        <div class="content">
+                                            <h2>August 2022 - December 2022</h2>
+                                            <p>
+                                                Systems Programming Teaching Assistant at the University of Connecticut
+                                            </p>
+                                            <img src="Images/UConn-CSE-logo.jpg" alt="UConn CSE Logo">
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="bead"></div>
+                                        <div class="content">
+                                            <h2>May 2022 - August 2022</h2>
+                                            <p>
+                                                Software Engineering Intern at Bentley Systems
+                                            </p>
+                                            <img src="Images/Bentley-logo.jpg" alt="Bentley Systems Logo">
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="bead"></div>
+                                        <div class="content">
+                                            <h2>June 2021 - August 2021</h2>
+                                            <p>
+                                                Information Technology Intern at the Town of South Windsor
+                                            </p>
+                                            <img src="Images/South-Windsor-Logo.png" alt="Town of South Windsor Logo">
+                                        </div>
+                                    </div>
+                                    <div class="section">
+                                        <div class="bead"></div>
+                                        <div class="content">
+                                            <h2>August 2020 - Present</h2>
+                                            <p>
+                                                Enrolled in the University of Connecticut School of Engineering
+                                            </p>
+                                            <img src="Images/UConn-logo.png" alt="University of Connecticut Logo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
                     </div>
                 </div>
-                <div class="section">
-                    <div class="bead"></div>
-                    <div class="content">
-                        <h2>January 2023 - Present</h2>
-                        <p>
-                            Independent Student Researcher in Applying Artificial Intelligence to Stock Trends
-                        </p>
-                        <img src="Images/UConn-CSE-logo.jpg" alt="UConn CSE Logo">
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="bead"></div>
-                    <div class="content">
-                        <h2>January 2023 - May 2023</h2>
-                        <p>
-                            C++ Essentials Teaching Assistant at the University of Connecticut
-                        </p>
-                        <img src="Images/UConn-CSE-logo.jpg" alt="UConn CSE Logo">
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="bead"></div>
-                    <div class="content">
-                        <h2>August 2022 - December 2022</h2>
-                        <p>
-                            Systems Programming Teaching Assistant at the University of Connecticut
-                        </p>
-                        <img src="Images/UConn-CSE-logo.jpg" alt="UConn CSE Logo">
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="bead"></div>
-                    <div class="content">
-                        <h2>May 2022 - August 2022</h2>
-                        <p>
-                            Software Engineering Intern at Bentley Systems
-                        </p>
-                        <img src="Images/Bentley-logo.jpg" alt="Bentley Systems Logo">
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="bead"></div>
-                    <div class="content">
-                        <h2>June 2021 - August 2021</h2>
-                        <p>
-                            Information Technology Intern at the Town of South Windsor
-                        </p>
-                        <img src="Images/South-Windsor-Logo.png" alt="Town of South Windsor Logo">
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="bead"></div>
-                    <div class="content">
-                        <h2>August 2020 - Present</h2>
-                        <p>
-                            Enrolled in the University of Connecticut School of Engineering
-                        </p>
-                        <img src="Images/UConn-logo.png" alt="University of Connecticut Logo">
-                    </div>
-                </div>
+            
             </div>
+            <!-- End: Tabs component -->
+
         </div>
         <script src="Main.js"></script>
+        
     </body>
 </html>

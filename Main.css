@@ -66,7 +66,7 @@ body{
   color: white;
   background-color: #4c4177;
   /*background-image: linear-gradient(315deg, #4c4177 0%, #2a5470 74%);*/
-  background-image: url("Images/background.jpg");
+  background-image: url("Images/background.png");
   overflow-x: hidden;
 }
 
@@ -108,7 +108,7 @@ body{
   height: 1rem;
   width: 1rem;
   border-radius: 50%;
-  background-color: #FFF;
+  background-color: #a200e8;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -220,3 +220,72 @@ h1{
   to { opacity: 1; }
 }
 
+@font-face {
+  font-family: ports;
+  src: url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+}
+
+.container-imgs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: ports;
+  text-align: center;
+}
+.container-imgs > div {
+  flex: 0 0 120px;
+  border-radius: 0.5rem;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  box-shadow: 1px 5px 15px #1e0e3e;
+  position: relative;
+  overflow: hidden;
+}
+.container-imgs > div:nth-of-type(1) {
+  background: url("Images/going-green.jpg") no-repeat 50%/cover;
+}
+.container-imgs > div:nth-of-type(2) {
+  background: url("Images/proj-2.jpg") no-repeat 50%/cover;
+}
+.container-imgs > div:nth-of-type(3) {
+  background: url("Images/AoS.jpg") no-repeat 50%/cover;
+}
+.container-imgs > div:nth-of-type(4) {
+  background: url("Images/maze.jpg") no-repeat 50%/cover;
+}
+.container-imgs > div .content-imgs {
+  font-size: 1.5rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  opacity: 0;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  background: #02022e;
+  background: linear-gradient(0deg, rgba(2, 2, 46, 0.6755077031) 0%, rgba(255, 255, 255, 0) 100%);
+  transform: translatey(100%);
+  transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+  visibility: hidden;
+}
+.container-imgs > div .content-imgs span {
+  display: block;
+  margin-top: 5px;
+  font-size: 1.2rem;
+}
+.container-imgs > div:hover {
+  flex: 0 0 250px;
+  box-shadow: 1px 3px 15px #7645d8;
+  transform: translatey(-30px);
+}
+.container-imgs > div:hover .content-imgs {
+  opacity: 1;
+  transform: translatey(0%);
+  visibility: visible;
+}

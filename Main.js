@@ -8,7 +8,15 @@ function gotoLinkedIn() {
 function qs(selector, all = false) {
   return all ? document.querySelectorAll(selector) : document.querySelector(selector);
 }
-   
+let dispTab = 1;
+function changeTab(index) {
+  dispTab = index;
+  console.log(dispTab);
+  if(dispTab == 3){
+      //window.scrollTo(0,0); 
+      console.log("scroll up");
+  }
+}
 const sections = qs('.section', true);
 const timeline = qs('.timeline');
 const line = qs('.line');
@@ -18,8 +26,15 @@ let up, down;
 let full = false;
 let set = 0;
 const targetY = window.innerHeight * .8;
-   
 function scrollHandler(e) {
+  //console.log(document.getElementById("activeTab"));
+
+  if(dispTab != 3){
+    //console.log("skip");
+    //return;
+  }
+  //console.log("scrolled");
+
   const {
       scrollY
   } = window;
@@ -29,7 +44,7 @@ function scrollHandler(e) {
   const lineRect = line.getBoundingClientRect(); // const lineHeight = lineRect.bottom - lineRect.top;
   
   const dist = targetY - timelineRect.top;
-  console.log(dist);
+  //console.log(dist);
   
   if (down && !full) {
       set = Math.max(set, dist);
@@ -69,6 +84,8 @@ function terminalAnimation(word, id, color){
   var target = document.getElementById(id);
   var exit = false;
   target.setAttribute('style', 'color:' + color);
+  target.setAttribute('style', 'font-size:35px');
+  con.setAttribute('style', 'font-size:30px');
   var interval = window.setInterval(function(){
     if(letterCount == 0 && waiting == false){
       waiting = true;
@@ -90,12 +107,16 @@ function terminalAnimation(word, id, color){
   }, 120);
   var underscore_interval = window.setInterval(function() {
     if (visible === true) {
-      con.className = 'console-underscore hidden'
+      // con.className = 'console-underscore hidden';
+      con.setAttribute('style', 'visibility:hidden');
+      //con.innerHTML = " ";
       visible = false;
 
     } else {
-      con.className = 'console-underscore'
+      //con.className = 'console-underscore'
+      con.setAttribute('style', 'visibility:visible');
 
+      //con.innerHTML = "_";
       visible = true;
     }
     if(exit){
