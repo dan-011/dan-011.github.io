@@ -289,3 +289,11 @@ h1{
   transform: translatey(0%);
   visibility: visible;
 }
+
+canvas{
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:-1;
+  
+}
